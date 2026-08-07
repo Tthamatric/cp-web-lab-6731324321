@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v3"
 
 	"cp-web-template-backend/internal/endpoints/foobar"
+	"cp-web-template-backend/internal/endpoints/greet"
 	"cp-web-template-backend/internal/endpoints/healthz"
 	"cp-web-template-backend/internal/service"
 )
@@ -40,4 +41,15 @@ func NewFooBarRouter(service service.Service) FooBarRouter {
 
 func (r FooBarRouter) Register(app *fiber.App) {
 	foobar.NewRouter(r.Service).Register(app)
+}
+
+type GreetRouter struct {
+}
+
+func NewGreetRouter() GreetRouter {
+	return GreetRouter{}
+}
+
+func (r GreetRouter) Register(app *fiber.App) {
+	greet.NewRouter().Register(app)
 }

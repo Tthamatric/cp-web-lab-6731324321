@@ -32,6 +32,7 @@ func newApp(appService service.Service) *fiber.App {
 	router.Register(app,
 		router.NewHealthzRouter(appService),
 		router.NewFooBarRouter(appService),
+		router.NewGreetRouter(),
 	)
 
 	return app
