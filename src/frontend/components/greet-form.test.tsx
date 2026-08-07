@@ -45,7 +45,9 @@ describe("GreetForm", () => {
   });
 
   it("shows an error message when the fetch fails", async () => {
-    (global.fetch as jest.Mock).mockRejectedValueOnce(new Error("network error"));
+    (global.fetch as jest.Mock).mockRejectedValueOnce(
+      new Error("network error"),
+    );
 
     render(<GreetForm />);
     fireEvent.click(screen.getByRole("button", { name: "Get greeting" }));
